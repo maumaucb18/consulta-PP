@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Produtos Perigosos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pesquisa de Produtos Perigosos</h1>
+        <form action="/api/search" method="get">
+            <label for="query">Digite o Código ONU ou Nome do Produto:</label>
+            <input id="query" name="query" type="text" required>
+            <button type="submit">Buscar</button>
+        </form>
+
+        <div id="results" class="accordion-container"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
