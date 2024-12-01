@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesquisa de Produtos Perigosos</title>
+  <link rel="stylesheet" href="style.css">  <!-- O CSS que foi criado -->
+</head>
+<body>
+
+  <div class="container">
+    <div id="search-container">
+      <input type="text" id="search-input" placeholder="Pesquise pelo nome ou código ONU" oninput="searchData()">
+    </div>
+
+    <div id="results"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script> <!-- PapaParse para leitura de CSV -->
+  <script src="script.js"></script> <!-- Script de busca e manipulação -->
+
+</body>
+</html>
