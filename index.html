@@ -9,6 +9,9 @@
 <body>
 
   <div class="container">
+    <header>
+      <h1>Pesquisa de Produtos Perigosos</h1>
+    </header>
     <div id="search-container">
       <input type="text" id="search-input" placeholder="Pesquise pelo nome ou código ONU" oninput="searchData()">
     </div>
@@ -16,8 +19,14 @@
     <div id="results"></div>
   </div>
 
+   <!-- Rodapé da página -->
+   <footer>
+    <p>Criado por <strong>Maurício Pignoli</strong></p>
+  </footer>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script> <!-- PapaParse para leitura de CSV -->
   <script src="script.js"></script> <!-- Script de busca e manipulação -->
+  
 
 </body>
 </html>
