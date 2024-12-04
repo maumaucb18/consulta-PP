@@ -7,7 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Garante que o rodapé ficará sempre no final */
-  text-align: center;
+  
 }
 a{
   color: inherit;
