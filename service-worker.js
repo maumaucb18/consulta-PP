@@ -1,24 +1,26 @@
 const CACHE_NAME = "produtos-perigosos-cache-v1";
 const urlsToCache = [
   "./index.html",
-  "./script.js",
-  "./style.css",
+  "./main.js",
+  "./styles.css",
+  "./Relacao_de_Produtos_Perigosos.json",
   "./manifest.json",
   "./icons/icon-192x192.png",
   "./icons/icon-512x512.png"
 ];
 
-// Instalar o Service Worker e adicionar arquivos ao cache
+// Instalar Service Worker
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      console.log("Arquivos em cache adicionados.");
-      return cache.addAll(urlsToCache);
+      return cache.addAll(urlsToCache).catch(err => {
+        console.error("Erro ao adicionar ao cache:", err);
+      });
     })
   );
 });
 
-// Ativar o Service Worker e remover caches antigos
+// Ativar Service Worker
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys().then(cacheNames =>
@@ -34,10 +36,11 @@ self.addEventListener("activate", event => {
   );
 });
 
-// Interceptar requisições e retornar do cache (offline)
+// Interceptar Fetch para usar o Cache
 self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request).then(response => {
+      // Retorna do cache ou faz requisição à rede
       return response || fetch(event.request);
     })
   );

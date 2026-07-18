@@ -2,24 +2,28 @@
 <html lang="pt-br">
 <head>
   <link rel="manifest" href="manifest.json">
-<link rel="icon" href="icons/icon-192x192.png">
-<meta name="theme-color" content="#007bff">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pesquisa de Produtos Perigosos</title>
-  <link rel="stylesheet" href="style.css">  <!-- O CSS que foi criado -->
+  <link rel="stylesheet" href="styles.css">  <!-- CSS consolidado -->
 </head>
 <body>
 
   <div class="container">
     
     <header>
-      <a href="simbologia.html" target="_blank" rel="noopener noreferrer"><h1>Simbologia</h1></a>
+      <div class="container">
+        <a href="simbologia.html" target="_blank" rel="noopener noreferrer"><h1>Simbologia</h1></a>
+      </div>
+      
       <a href="https://sistemasinter.cetesb.sp.gov.br/produtos/produto_consulta_nome.asp" target="_blank"><h1>Consulta FISPQ</h1></a>
-      <h1>Pesquisa de Produtos Perigosos</h1>
     </header>
-    
+
+    <section class="consultaca-wrapper">
+      <div id="consultaca-container"></div>
+    </section>
+    <script src="https://consultaca.com/js/embed.js"></script>
+
     <div id="search-container">
       <input 
   type="text" 
@@ -27,6 +31,19 @@
   placeholder="Pesquise pelo nome ou código ONU" 
   oninput="searchData()" 
   style="text-transform: uppercase;"> <!-- Força a exibição de texto em maiúsculas -->
+      <div style="max-width:900px;margin:8px auto 0;display:flex;gap:8px;align-items:center;">
+        <select id="filter-classe" aria-label="Filtrar por classe"></select>
+        <select id="filter-grupo" aria-label="Filtrar por grupo de embalagem"></select>
+        <select id="sort-by" aria-label="Ordenar resultados">
+          <option value="">Ordenar</option>
+          <option value="onu-asc">ONU ↑</option>
+          <option value="onu-desc">ONU ↓</option>
+          <option value="nome-asc">Nome A→Z</option>
+          <option value="nome-desc">Nome Z→A</option>
+        </select>
+        <button id="export-csv" type="button">Exportar CSV</button>
+        <button id="clear-filters" type="button">Limpar filtros</button>
+      </div>
     </div>
 
     <div id="results"></div>
@@ -39,18 +56,24 @@
     <a href="https://github.com/maumaucb18" target="_blank" rel="noopener noreferrer"><p>Criado por <strong>Maurício Pignoli</strong></p></a>
   </footer>
 
- <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>  PapaParse para leitura de CSV  carrega os dados do arquivo csv-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-
-  <script src="script.js"></script> <!-- Script de busca e manipulação -->
+  <script src="main.js"></script>
 
   <script>
+    document.getElementById('clear-filters')?.addEventListener('click', () => {
+      document.getElementById('filter-classe').value = '';
+      document.getElementById('filter-grupo').value = '';
+      document.getElementById('search-input').value = '';
+      document.getElementById('results').innerHTML = '';
+    });
+
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./service-worker.js')
         .then(() => console.log("Service Worker registrado com sucesso."))
         .catch(error => console.error("Erro ao registrar o Service Worker:", error));
     }
+    
   </script>
+  
   
 
 </body>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiscalização PP - PWA</title>
+    <link rel="stylesheet" href="card2.css">
+</head>
+<body>
+    <div class="container-fiscal">
+        <header>
+            <h1>Fiscalização de Produtos Perigosos</h1>
+            <p>ANTT 5.998/22 | NBR 9735 | NBR 7500</p>
+        </header>
+
+        <nav class="grid-botoes" id="grid-classes"></nav>
+
+        <main id="card-fiscal" class="card-resultado hidden">
+            <div class="header-com-imagem">
+                <div class="titulos">
+                    <h2 id="res-titulo"></h2>
+                    <span id="res-subclasse" class="badge"></span>
+                </div>
+                <div id="container-img">
+                    </div>
+            </div>
+            
+            <div class="card-body">
+                <section class="secao">
+                    <strong>⚠️ Risco Principal</strong>
+                    <p id="res-risco"></p>
+                </section>
+
+                <section class="secao">
+                    <strong>🖼️ Sinalização e Rótulo</strong>
+                    <p id="res-sinal"></p>
+                </section>
+
+                <section class="secao">
+                    <strong>🦺 Kit EPI Obrigatório</strong>
+                    <p id="res-epi"></p>
+                </section>
+
+                <section class="secao infracao">
+                    <strong>🚨 Foco de Infração (ANTT)</strong>
+                    <p id="res-infracao"></p>
+                </section>
+
+                <footer class="info-extra">
+                    <small><strong>Dica de Campo:</strong> <span id="res-atencao"></span></small>
+                </footer>
+            </div>
+        </main>
+    </div>
+    <script src="scrit2.js"></script>
+</body>
+</html>

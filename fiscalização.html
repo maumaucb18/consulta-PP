@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Fiscalização ANTT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Fiscalização RTPP </h1>
+        <p>Resolução 5.998/2022</p>
+    </header>
+
+    <main id="app-checklist">
+        <!-- O JS vai injetar o checklist aqui dentro -->
+    </main>
+
+    <footer>
+        <button id="btn-gerar">GERAR ENQUADRAMENTO</button>
+    </footer>
+
+    <!-- Modal de Resultado -->
+    <div id="resultado" class="hidden">
+        <div class="modal">
+            <h3>📋 Relatório de Infração</h3>
+            <div id="lista-infracoes"></div>
+            <button class="btn-acao btn-print" onclick="window.print()">SALVAR PDF</button>
+            <button class="btn-acao btn-fechar" onclick="fecharModal()">FECHAR</button>
+        </div>
+    </div>
+
+    <script src="roteiro.js"></script>
+</body>
+</html>

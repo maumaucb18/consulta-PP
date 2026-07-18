@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #007BFF;
+}
+
+.section {
+    background-color: #fff;
+    margin: 15px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+}
+
+.section h2 {
+    margin: 0;
+    color: #333;
+}
+
+.checklist {
+    list-style: none;
+    padding-left: 20px;
+    display: none;
+}
+
+.checklist li {
+    margin: 10px 0;
+    cursor: pointer;
+    color: #007BFF;
+    text-decoration: underline;
+}
+
+.checklist li:hover {
+    color: #0056b3;
+}
+
+.resultado {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e8f5e9;
+    border: 1px solid #4caf50;
+    border-radius: 5px;
+    color: #155724;
+}

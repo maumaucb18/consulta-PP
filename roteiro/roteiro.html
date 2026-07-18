@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist de Fiscalização - Resolução 5998</title>
+    <link rel="stylesheet" href="roteiro.css">
+</head>
+<body>
+    <h1>Checklist de Fiscalização - Resolução 5998</h1>
+
+    <!-- Seções principais -->
+    <div class="section" onclick="toggleChecklist('documentacao')">
+        <h2>Documentação</h2>
+        <ul id="documentacao" class="checklist">
+            <li onclick="showArticle('Art. 35, XII - Exigir documentos do expedidor (CTRC, MDF-e).')">Documentos fornecidos pelo expedidor</li>
+            <li onclick="showArticle('Art. 35, V - Certificação do veículo (CIV, CIPP, CTPP).')">Certificado do veículo</li>
+        </ul>
+    </div>
+
+    <div class="section" onclick="toggleChecklist('sinalizacao')">
+        <h2>Sinalização</h2>
+        <ul id="sinalizacao" class="checklist">
+            <li onclick="showArticle('Art. 35, VII - Sinalização adequada nos veículos.')">Sinalização dos veículos (rótulos, painéis)</li>
+        </ul>
+    </div>
+
+    <div class="section" onclick="toggleChecklist('embalagens')">
+        <h2>Embalagens</h2>
+        <ul id="embalagens" class="checklist">
+            <li onclick="showArticle('Art. 35, IX - Volumes e sobreembalagens identificados.')">Identificação de embalagens</li>
+            <li onclick="showArticle('Art. 36 - Embalagens sem sinais de violação ou deterioração.')">Estado de conservação das embalagens</li>
+        </ul>
+    </div>
+
+    <div class="section" onclick="toggleChecklist('equipamentos')">
+        <h2>Equipamentos</h2>
+        <ul id="equipamentos" class="checklist">
+            <li onclick="showArticle('Art. 35, VIII - Equipamentos de emergência e EPIs.')">Equipamentos de emergência</li>
+        </ul>
+    </div>
+
+    <div class="section" onclick="toggleChecklist('veiculo')">
+        <h2>Condições do Veículo</h2>
+        <ul id="veiculo" class="checklist">
+            <li onclick="showArticle('Art. 35, XIV - Verificar condições gerais do veículo.')">Verificação de condições gerais</li>
+            <li onclick="showArticle('Art. 35, IV - Limpeza e descontaminação do veículo.')">Limpeza do veículo</li>
+        </ul>
+
+        <!-- Tabela dos calços conforme o tipo de veículo -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo de Veículo</th>
+                    <th>Calços Exigidos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Caminhão ou caminhão-trator com semirreboque</td>
+                    <td>2 calços</td>
+                </tr>
+                <tr>
+                    <td>Caminhão com reboque romeu e julieta, bitrem, bitrenzão ou rodotrem</td>
+                    <td>4 calços</td>
+                </tr>
+                <tr>
+                    <td>Tritrem</td>
+                    <td>6 calços</td>
+                </tr>
+                <tr>
+                    <td>Outros veículos, camionetas, camionetes, veículos mistos, veículos especiais, incluindo todos com PBT até 3,5 ton</td>
+                    <td>2 calços</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Na falta do calço por estar incompleto, inadequado ou faltando, autuar o transportador e o expedidor.</strong></p>
+    </div>
+
+    <div class="section" onclick="toggleChecklist('treinamento')">
+        <h2>Treinamento do Condutor</h2>
+        <ul id="treinamento" class="checklist">
+            <li onclick="showArticle('Art. 35, XI - Curso específico MOPP.')">Condutor aprovado em curso MOPP</li>
+        </ul>
+    </div>
+
+    <!-- Resultado -->
+    <div id="resultado" class="resultado"></div>
+
+    <script src="roteiro.js"></script>
+</body>
+</html>

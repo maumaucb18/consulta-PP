@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesquisa de Produtos Perigosos - Fiscalização</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- HEADER -->
+    <header>
+      <div class="header-top">
+        <a href="simbologia.html" target="_blank" rel="noopener noreferrer" class="btn-header">📋 Simbologia</a>
+        <a href="https://sistemasinter.cetesb.sp.gov.br/produtos/produto_consulta_nome.asp" target="_blank" class="btn-header">🔍 FISPQ</a>
+        <a href="https://sistemasinter.cetesb.sp.gov.br/produtos/produto_consulta_nome.asp" target="_blank" class="btn-header">🔍 Previsões Especiais </a>
+        <a href="https://sistemasinter.cetesb.sp.gov.br/produtos/produto_consulta_nome.asp" target="_blank" class="btn-header">🔍 Quantidades Limitadas  </a>
+        <a href="fiscalizacao.html" target="_blank" class="btn-header">⚖️ NOMES APROPRIADOS PARA EMBARQUE:</a>
+
+      </div>
+      <h1>🚚 Pesquisa de Produtos Perigosos</h1>
+      <p>Consulta ONU | Fiscalização | NBR 9735 | ANTT 5.998/22</p>
+    </header>
+    
+    <!-- BARRA DE BUSCA -->
+    <div id="search-container">
+      <input 
+        type="text" 
+        id="search-input" 
+        placeholder="Pesquise pelo nome ou código ONU" 
+        oninput="searchData()" 
+        style="text-transform: uppercase;">
+      <div style="max-width:900px;margin:8px auto 0;display:flex;gap:8px;align-items:center;">
+        <select id="filter-classe" aria-label="Filtrar por classe"></select>
+        <select id="filter-grupo" aria-label="Filtrar por grupo de embalagem"></select>
+        <select id="sort-by" aria-label="Ordenar resultados">
+          <option value="">Ordenar</option>
+          <option value="onu-asc">ONU ↑</option>
+          <option value="onu-desc">ONU ↓</option>
+          <option value="nome-asc">Nome A→Z</option>
+          <option value="nome-desc">Nome Z→A</option>
+        </select>
+        <button id="export-csv" type="button">Exportar CSV</button>
+        <button id="clear-filters" type="button">Limpar filtros</button>
+      </div>
+      <div id="search-tips" class="search-tips">
+        💡 Digite o nome do produto (ex: GASOLINA) ou código ONU (ex: 1203)
+      </div>
+    </div>
+
+    <!-- ÁREA DE RESULTADOS -->
+    <div id="results" class="results-container"></div>
+
+  </div>
+  
+
+  <!-- RODAPÉ -->
+  <footer>
+    <a href="https://github.com/maumaucb18" target="_blank" rel="noopener noreferrer">
+      <p>Criado por <strong>Maurício Pignoli</strong> | PWA Fiscalização</p>
+    </a>
+  </footer>
+
+  <!-- SCRIPTS -->
+  
+  <script src="main.js"></script>
+  <script>
+    document.getElementById('clear-filters')?.addEventListener('click', () => {
+      document.getElementById('filter-classe').value = '';
+      document.getElementById('filter-grupo').value = '';
+      document.getElementById('search-input').value = '';
+      document.getElementById('results').innerHTML = '';
+    });
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(() => console.log("Service Worker registrado com sucesso."))
+        .catch(error => console.error("Erro ao registrar o Service Worker:", error));
+    }
+    
+  </script>
+
+</body>
+</html>
